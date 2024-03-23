@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Paper 1",
+    "year": 2020,
+    "author": "Nico Baier",
+    "coauthors": [],
+    "venue": "Venue 1",
+    "path": "/public/test.pdf",
+    "abstract": "This is the abstract for paper 1."
+  },
+  {
+    "title": "Paper 2",
+    "year": 2020,
+    "author": "Nico Baier",
+    "coauthors": [
+      { "name": "Michelle Yuan", "url": "https://quote.ucsd.edu/myuan/" }
+    ],
+
+    "venue": "Venue 2",
+    "path": "/public/test.pdf",
+    "abstract": "This is the abstract for paper 1."
+  }
+]
+

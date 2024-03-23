@@ -1,0 +1,37 @@
+---
+---
+
+<span class="tooltip"
+  ><slot /><span class="tooltiptext">more content</span></span
+>
+
+<style>
+  .tooltip {w
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: max-content;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 4px 8px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+  }
+
+  p > .tooltip .tooltiptext {
+    color: red;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+</style>

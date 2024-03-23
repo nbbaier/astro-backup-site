@@ -1,0 +1,43 @@
+---
+import BaseHead from "../layouts/BaseHead.astro";
+import Header from "../layouts/Header.astro";
+import Footer from "../layouts/Footer.astro";
+import Papers from "../components/Papers.svelte";
+import Translation from "@components/Translation.astro";
+---
+
+<html lang="en">
+  <BaseHead title={"test.astro"} />
+  <body class="font-sans font-normal leading-relaxed font-base">
+    <Header />
+    <main class="max-w-[800px] mx-auto pt-14 leading-7">
+      <h1 class="mb-2 text-4xl font-medium font-alegreya">
+        Test site for .astro files
+      </h1>
+      <p class="mb-4">Description</p>
+      <!-- <div><Papers /></div>-->
+
+      White space rendered after component:
+      <ul>
+        <li>die <Translation>frau</Translation>.</li>
+        <li>die <Translation>frau</Translation> .</li>
+        <li>die <Translation>frau</Translation>-en</li>
+        <li>die <Translation>frau</Translation> -en</li>
+      </ul>
+
+      <p>White space not rendered before component:</p>
+      <ul>
+        <li>die<Translation>frau</Translation></li>
+        <li>die <Translation>frau</Translation></li>
+      </ul>
+
+    </main>
+    <Footer />
+    <style>
+      ul {
+        list-style-type: disc;
+        list-style-position: inside;
+      }
+    </style>
+  </body>
+</html>

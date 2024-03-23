@@ -1,0 +1,43 @@
+---
+---
+
+<span class="lexicalItem"><slot/><span class="translation"></span></span>
+
+<style>
+  .lexicalItem {
+    position: relative;
+    display: inline-block;
+    text-decoration: underline dotted;
+    padding:0px;
+  }
+
+  .translation {
+    visibility: hidden;
+    width: max-content;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 4px 8px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 120%;
+  }
+
+  .lexicalItem:hover .translation {
+    visibility: visible;
+  }
+</style>
+
+<script>
+  const dictionary = { mann: "man", frau: "woman" };
+  const items = document.querySelectorAll(".lexicalItem");
+  items.forEach((item) => {
+    const lexItem = item.textContent;
+    const translation = item.querySelector(".translation");
+    translation.innerHTML = dictionary[lexItem];
+  });
+</script>

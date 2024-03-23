@@ -1,0 +1,52 @@
+---
+// Configuration import
+import { NAME } from "../config";
+
+// Layout imports
+import BaseHead from "./BaseHead.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+
+// Getting the frontmatter from markdown file
+const { frontmatter } = Astro.props;
+
+// Determining the site title should be just NAME or SITE_TITLE
+const { pathname } = Astro.url;
+const atHome = pathname === "/";
+const SITE_TITLE = frontmatter.title + " | " + NAME;
+---
+
+<!doctype html>
+<html lang="en">
+  <!-- Head -->
+  <BaseHead title={atHome ? NAME : SITE_TITLE} />
+
+  <!-- Body -->
+  <body>
+    <!-- Header -->
+    <Header />
+
+    <!-- Content -->
+    <main class="max-w-[800px] mx-auto pt-12 leading-7">
+      <div
+        class="max-w-[800px] mx-auto prose prose-base font-sans prose-headings:font-alegreya prose-h1:pageH1 prose-h2:pageH2 prose-p:mb-4 prose-li:marker:text-black prose-li:my-1 prose-ul:my-3 prose-code:font-normal"
+      >
+        <slot />
+
+        <!-- <pre id="json">stuff = {JSON.stringify(STUFF,null,2)}</pre> -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+    <script>
+      var divs = document.getElementsByClassName("external");
+      for (var i = 0; i < divs.length; i++) {
+        // divs[i].setAttribute("style", "color:red;");
+        divs[i].setAttribute("target", "_blank");
+        divs[i].setAttribute("rel", "noopener noreferrer");
+      }
+    </script>
+  </body>
+</html>

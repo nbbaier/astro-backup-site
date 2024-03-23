@@ -1,0 +1,47 @@
+---
+// Import HeaderLink component
+import HeaderLink from "./HeaderLink.astro";
+
+// Import NAME from config
+import { NAME } from "../config";
+
+// Do stuff for the active link (don't understand this)
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+const { pathname } = Astro.url;
+const visible = pathname === "/";
+
+// Create a sorted array of .md/.mdx files in src/page which can then be used to create the nav
+const paths = await Astro.glob("../pages/*.{md,mdx}");
+const nonDraftPosts = paths.filter((path) => !path.frontmatter.draft);
+const NavList = nonDraftPosts.sort((a, b) =>
+  a.frontmatter.navsort > b.frontmatter.navsort ? 1 : -1
+);
+---
+
+<header class="sticky top-0 p-2 bg-white shadow border-b-1">
+  <div class="max-w-[800px] mx-auto">
+    <div class="flex items-center justify-between">
+      <div class="py-1.5 text-normal">
+        {
+          !visible && (
+            <a class="bg-white " href="/">
+              {NAME}
+            </a>
+          )
+        }
+      </div>
+      <nav class="justify-end p-1.5">
+        {
+          NavList.map((data) => (
+            <HeaderLink href={data.url === "" ? "/" : data.url}>
+              {data.frontmatter.title}
+            </HeaderLink>
+          ))
+        }
+        <HeaderLink href="/test1">test.astro</HeaderLink>
+        <!-- <HeaderLink href="/public/test.pdf">cv</HeaderLink> -->
+        <!-- Link to CV-->
+      </nav>
+    </div>
+  </div>
+</header>

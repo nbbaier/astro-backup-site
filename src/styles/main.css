@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .active {
+    @apply font-semibold text-blue-500;
+  }
+}
+
+@layer components {
+  .pageH1 {
+    @apply mb-2 text-4xl font-medium font-alegreya;
+  }
+  .pageH2 {
+    @apply mt-6 mb-2 text-3xl font-medium font-alegreya;
+  }
+}

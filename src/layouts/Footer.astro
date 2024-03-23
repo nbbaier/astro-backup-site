@@ -1,0 +1,49 @@
+---
+// Import astro-icon for the social icons in the footer
+import { Icon } from "astro-icon/components";
+
+// Get the year for copyright
+const year = new Date().getFullYear();
+
+// List of socials for the footer
+const socials = [
+  { name: "github", url: "https://github.com/nbbaier", icon: "ri:github-fill" },
+  {
+    name: "twitter",
+    url: "https://twitter.com/nbbaier",
+    icon: "ri:twitter-fill",
+  },
+  {
+    name: "linkedin",
+    url: "https://www.linkedin.com/in/nicobaier/",
+    icon: "ri:linkedin-box-fill",
+  },
+];
+---
+
+<style>
+  ul > li {
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+  }
+</style>
+
+<footer class="mx-auto max-w-[800px] text-center p-12 space-x-1">
+  <ul class="space-x-3">
+    {
+      socials.map((social) => (
+        <li>
+          <a href={social.url} class="external">
+            <Icon
+              role="link"
+              aria-label={social.name}
+              class="h-[26px]"
+              name={social.icon}
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="pt-1 text-xs text-center">© {year} Nico Baier</p>
+</footer>

@@ -1,0 +1,34 @@
+[
+  {
+    "author": [
+      {
+        "family": "Lahne",
+        "given": "Antje"
+      }
+    ],
+    "genre": "PhD thesis",
+    "id": "Lahne:2008",
+    "issued": {
+      "date-parts": [[2008]]
+    },
+    "publisher": "Leipzig University",
+    "title": "Where There is Fire There is Smoke: Local Modelling of Successive-Cyclic Movement",
+    "type": "thesis"
+  },
+  {
+    "author": [
+      {
+        "family": "Cheng",
+        "given": "Lisa Lai-Shen"
+      }
+    ],
+    "genre": "PhD thesis",
+    "id": "Cheng:1991b",
+    "issued": {
+      "date-parts": [[1991]]
+    },
+    "publisher": "Massachusetts Institute of Technology",
+    "title": "On the typology of WH-questions",
+    "type": "thesis"
+  }
+]
